@@ -40,14 +40,6 @@ class MarketoFormAsset extends AssetBundle
             CpAsset::class,
         ];
 
-        $this->js = [
-            'js/MarketoForm.js',
-        ];
-
-        $this->css = [
-            'css/MarketoForm.css',
-        ];
-
         parent::init();
     }
 }

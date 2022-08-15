@@ -10,7 +10,6 @@
 
  namespace imarc\marketoform\models;
 
- use Craft;
  use craft\base\Model;
 
  /**

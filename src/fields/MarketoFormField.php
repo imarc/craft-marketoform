@@ -12,7 +12,6 @@ namespace imarc\marketoform\fields;
 
 use Exception;
 
-use imarc\marketoform\MarketoForm;
 use imarc\marketoform\models\MarketoForm as MarketoFormModel;
 use imarc\marketoform\assetbundles\marketoformfield\MarketoFormFieldAsset;
 
@@ -21,7 +20,6 @@ use craft\redactor\Field as RedactorField;
 use Craft;
 use craft\base\ElementInterface;
 use craft\base\Field;
-use craft\helpers\Db;
 use yii\db\Schema;
 use craft\helpers\Json;
 
