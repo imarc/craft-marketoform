@@ -81,7 +81,7 @@ class MarketoFormService extends Component
         Craft::$app->getCache()->set("allMarketoForms", $allMarketoForms, $this->cacheTimeout);
 
         // Return form json
-        if ($formJson["result"]) {
+        if (array_key_exists("result", $formJson)) {
             return $formJson["result"];
         }
         return $formJson;
@@ -101,16 +101,20 @@ class MarketoFormService extends Component
         $formObj = [];
         $htmlText = [];
         $hiddenFields = [];
-        foreach ($formJson as $field) {
-            if ($field["dataType"] == "htmltext") {
-                $htmlText[] = $field;
-            } else if ($field["dataType"] == "hidden") {
-                $hiddenFields[] = $field;
-            } else {
-                $formObj[$field["id"]] = $field;
+        if (is_array($formJson)) {
+            foreach ($formJson as $field) {
+                if (is_array($field) && array_key_exists("dataType", $field)) {
+                    if ($field["dataType"] == "htmltext") {
+                        $htmlText[] = $field;
+                    } else if ($field["dataType"] == "hidden") {
+                        $hiddenFields[] = $field;
+                    } else {
+                        $formObj[$field["id"]] = $field;
+                    }
+                }           
             }
-            
         }
+        
         $formObj["htmlText"] = $htmlText;
         $formObj["hidden"] = $hiddenFields;
 
