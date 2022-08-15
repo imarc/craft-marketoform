@@ -1,0 +1,40 @@
+
+{% import "_includes/forms" as forms %}
+
+{% do view.registerAssetBundle("imarc\\marketoform\\assetbundles\\marketoform\\MarketoFormAsset") %}
+
+{{ forms.textField({
+    label: 'Placeholder text',
+    instructions: 'Enter placeholder text for the form field',
+    id: 'placeholderText',
+    name: 'placeholderText',
+    value: field['placeholderText']})
+}}
+
+{{ forms.checkboxField({
+    label: 'Allow thank you message',
+    instructions: 'Check this if you want to allow CMS editors to enter a thank you message for the Marketo form.',
+    name: 'allowThankyouMessage',
+    checked: settings.allowThankyouMessage })
+}}
+
+{{ forms.checkboxField({
+    label: 'Allow redirect URL',
+    instructions: 'Check this if you want to allow CMS editors to enter a redirect URL for the Marketo form.',
+    name: 'allowRedirectUrl',
+    checked: settings.allowRedirectUrl })
+}}
+
+{{ forms.checkboxField({
+    label: 'Allow onSubmit code',
+    instructions: 'Check this if you want to allow CMS editors to enter code that will be called in the Marketo onSubmit callback.',
+    name: 'allowOnSubmit',
+    checked: settings.allowOnSubmit })
+}}
+
+{{ forms.checkboxField({
+    label: 'Allow onSuccess code',
+    instructions: 'Check this if you want to allow CMS editors to enter code that will be called in the Marketo onSuccess callback.',
+    name: 'allowOnSuccess',
+    checked: settings.allowOnSuccess })
+}}

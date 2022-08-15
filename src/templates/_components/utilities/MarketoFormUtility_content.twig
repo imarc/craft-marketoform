@@ -1,0 +1,42 @@
+
+{% import "_includes/forms" as forms %}
+
+<h1>Clear Marketo Form Caches</h1>
+
+{% set iconUrl = view.getAssetManager().getPublishedUrl('@imarc/marketoform/assetbundles/marketoformutility/dist', true) ~ '/img/MarketoFormUtility-icon.svg' %}
+
+<img src="{{ iconUrl }}" height="64" width="64" />
+
+
+<div style="margin: 10px 0;">
+    <form class="utility" method="post" accept-charset="UTF-8">
+        <input type="hidden" name="action" value="marketoform/utility/clear-cache">
+        <input type="hidden" name="utility" value="1">
+
+        {{ csrfInput() }}
+
+        {{ forms.checkboxGroup({
+            name: "formIds",
+            options: marketoFormIds,
+        })}}
+
+        {% if not marketoFormIds or not marketoFormIds|length %}
+            <p>No cached forms</p>
+        {% endif %}
+
+        <input type="submit" class="btn submit" value="Clear Selected Form Caches">
+    </form>
+
+</div>
+
+<div style="margin: 10px 0;">
+    <form class="utility" method="post" accept-charset="UTF-8">
+        <input type="hidden" name="action" value="marketoform/utility/clear-all-cache">
+        <input type="hidden" name="utility" value="1">
+
+        {{ csrfInput() }}
+
+        <input type="submit" class="btn submit" value="Clear All Form Caches">
+    </form>
+</div>
+

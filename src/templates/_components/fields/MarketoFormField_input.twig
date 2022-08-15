@@ -1,0 +1,66 @@
+{% import "_includes/forms" as forms %}
+
+<div class="marketofield">
+
+{{ forms.textField({
+        id: name~'marketoFormId',
+        name: name~'[marketoFormId]',
+        label: 'Marketo ID',
+        value: value ? value.marketoFormId : '',
+        placeholder: field['placeholderText'] })
+}}
+
+{% if settings.allowThankyouMessage %} 
+        <div id="{{name}}thankyouMessage-field" class="field">
+                <div class="heading">
+                        <label id="{{name}}thankyouMessage-label" for="fields-{{name}}thankyouMessage">Thank you message</label>
+                </div>
+                <div id="{{name}}thankyouMessage-instructions">
+                        <p>Enter the message you want the user to see after submitting the form.</p>
+                </div>
+                <div class="input ltr">
+                        {{ redactorFieldHtml|raw }}
+                </div>
+        </div>
+{% endif %}
+
+{% if settings.allowRedirectUrl %}
+        {% set instructions = 'Enter the URL that will display after the form submits.' %}
+        {% if settings.allowThankyouMessage %}
+                {% set instructions = instructions ~ ' This will take precedence over the thank you message.' %}
+        {% endif %}
+        {{ forms.textField({
+                id: name~'redirectUrl',
+                name: name~'[redirectUrl]',
+                instructions: instructions,
+                label: 'Redirect URL',
+                value: value ? value.redirectUrl : '',
+                placeholder: field['redirectUrl'] })
+        }}
+{% endif %}
+
+{% if settings.allowOnSubmit %}
+
+        {{ forms.textareaField({
+                id: name~'onSubmit',
+                name: name~'[onSubmit]',
+                label: 'onSubmit code',
+                instructions: 'Enter code that will fire inside the onSubmit event',
+                value: value ? value.onSubmit : '',
+                placeholder: field['onSubmit'] })
+        }}
+{% endif %}
+
+{% if settings.allowOnSuccess %}
+
+        {{ forms.textareaField({
+                id: name~'onSuccess',
+                name: name~'[onSuccess]',
+                label: 'onSuccess code',
+                instructions: 'Enter code that will fire inside the onSuccess event',
+                value: value ? value.onSuccess : '',
+                placeholder: field['onSuccess'] })
+        }}
+{% endif %}
+
+</div>

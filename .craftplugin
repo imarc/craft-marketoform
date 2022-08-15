@@ -1,0 +1,14 @@
+{
+    "pluginName":"Marketo Form",
+    "pluginDescription":"Retrieves Marketo form and makes it available on the front end",
+    "pluginVersion":"1.0.0",
+    "pluginAuthorName":"Linnea Hartsuyker",
+    "pluginVendorName":"imarc",
+    "pluginAuthorUrl":"https://www.imarc.com/",
+    "pluginAuthorGithub":"linneaharts",
+    "codeComments":["codeComments"],
+    "pluginComponents":["consolecommands","controllers","cpsection","elementtypes","fieldtypes","models","purchasables","records","services","settings","tasks","twigextensions","utilities","variables","widgets"],
+    "consolecommandName":"",
+    "controllerName":"",
+    "cpsectionName":"",
+    "elementName":"","fieldName":"","modelName":"","purchasableName":"","recordName":"","serviceName":"","taskName":"","utilityName":"","widgetName":"","apiVersion":"api_version_3_0"}
