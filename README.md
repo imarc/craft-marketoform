@@ -34,7 +34,8 @@ To install the plugin, follow these instructions.
 
 5. In your config folder create a file called `marketoform.php` and put the following information in it, filling in your own values
 
-```<?php
+```
+<?php
 
 return [
 
@@ -46,4 +47,5 @@ return [
 
     "cacheTimeout" => 86400
 
-];```
+];
+```
