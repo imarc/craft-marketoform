@@ -123,7 +123,7 @@ class MarketoFormService extends Component
     }
 
 
-   // Protected Methods
+   // Private Methods
     // =========================================================================
 
     /**
@@ -134,7 +134,7 @@ class MarketoFormService extends Component
      * @param array $options
      * @return Response
      */
-    protected function sendMarketoRequest($method, $requestPath, $data = [])
+    private function sendMarketoRequest($method, $requestPath, $data = [])
     {
         $options = [
             'headers' => [
@@ -177,7 +177,7 @@ class MarketoFormService extends Component
      *
      * @return string|bool
      */
-    protected function renewAccessToken()
+    private function renewAccessToken()
     {
         $client = new Client([
             'base_uri' => $this->marketoUrl
@@ -207,7 +207,7 @@ class MarketoFormService extends Component
      *
      * @return string|bool
      */
-    protected function getAccessToken() {
+    private function getAccessToken() {
         
         $token = Craft::$app->getCache()->get($this->cacheKey);
 
@@ -218,10 +218,6 @@ class MarketoFormService extends Component
         return $token;
     }
 
-
-
-    // Private Methods
-    // =========================================================================
 
     /**
      * Takes a GuzzleHttp response and handles the http status code checks, and data formatting. (Mini-middleware)
