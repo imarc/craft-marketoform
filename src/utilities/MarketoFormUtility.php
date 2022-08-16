@@ -9,13 +9,12 @@
  * @copyright Copyright (c) 2022 Linnea Hartsuyker
  */
 
- namespace imarc\marketoform\utilities;
+namespace imarc\marketoform\utilities;
 
- use imarc\marketoform\MarketoForm;
- use imarc\marketoform\assetbundles\marketoformutility\MarketoFormUtilityAsset;
- use imarc\marketoform\variables\MarketoFormVariable;
+use imarc\marketoform\assetbundles\marketoformutility\MarketoFormUtilityAsset;
+use imarc\marketoform\variables\MarketoFormVariable;
 
- use Craft;
+use Craft;
 use craft\base\Utility;
 
 class MarketoFormUtility extends Utility
@@ -51,18 +50,6 @@ class MarketoFormUtility extends Utility
     public static function iconPath()
     {
         return Craft::getAlias("@imarc/marketoform/assetbundles/marketoformutility/dist/img/MarketoFormUtility-icon.svg");
-    }
-
-    /**
-     * Returns the number that should be shown in the utility’s nav item badge.
-     *
-     * If `0` is returned, no badge will be shown
-     *
-     * @return int
-     */
-    public static function badgeCount(): int
-    {
-        return 0;
     }
 
     /**

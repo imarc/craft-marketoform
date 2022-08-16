@@ -10,11 +10,7 @@
 
 namespace imarc\marketoform\variables;
 
-//use imarc\marketoform\MarketoForm;
-
 use imarc\marketoform\services\MarketoFormService;
-
-use Craft;
 
 /**
  * MarketoForm Variable
@@ -32,29 +28,6 @@ class MarketoFormVariable
 {
     // Public Methods
     // =========================================================================
-
-    /**
-     * Whatever you want to output to a Twig template can go into a Variable method.
-     * You can have as many variable functions as you want.  From any Twig template,
-     * call it like this:
-     *
-     *     {{ craft.marketoForm.exampleVariable }}
-     *
-     * Or, if your variable requires parameters from Twig:
-     *
-     *     {{ craft.marketoForm.exampleVariable(twigValue) }}
-     *
-     * @param null $optional
-     * @return string
-     */
-    public function exampleVariable($optional = null)
-    {
-        $result = "And away we go to the Twig template...";
-        if ($optional) {
-            $result = "I'm feeling optional today...";
-        }
-        return $result;
-    }
 
     // returns form as an array of form fields
     public function marketoFormJson($id) {

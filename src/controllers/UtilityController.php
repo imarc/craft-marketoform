@@ -11,8 +11,6 @@
 
  namespace imarc\marketoform\controllers;
 
- use imarc\marketoform\MarketoForm;
-
  use Craft;
  use craft\web\Controller;
  use craft\web\View;

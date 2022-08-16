@@ -39,14 +39,6 @@ class MarketoFormUtilityAsset extends AssetBundle
             CpAsset::class,
         ];
 
-        $this->js = [
-            'js/MarketoFormUtility.js',
-        ];
-
-        $this->css = [
-            'css/MarketoFormUtility.css',
-        ];
-
         parent::init();
 
      }

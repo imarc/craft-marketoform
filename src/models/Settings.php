@@ -11,9 +11,6 @@
 
 namespace imarc\marketoform\models;
 
-use imarc\marketoform\MarketoForm;
-
-use Craft;
 use craft\base\Model;
 
 /**
