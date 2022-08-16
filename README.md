@@ -94,9 +94,11 @@ retrieves the raw JSON result from Marketo. This is in the form of an array of f
 
 *Bear in mind that Marketo supports conditional form fields like state fields that appear when a specific country is selected. You may need to write javascript to accomodate this.*
 
+This method retrieves a JSON object rather than an array:
+
     {% set marketoForm = craft.marketoForm.marketoForm(marketoId) %}
 
-retrieves a JSON object for the Marketo form with the field ids as keys, except for htmlText and hidden fields which are put into arrays. This is helpful when you know exactly what fields the form will have and you want to alter the order in which they show up. A field could be displayed like this:
+The field ids will be the keys, except for htmlText and hidden fields which are put into arrays. This is helpful when you know exactly what fields the form will have and you want to alter the order in which they show up. A field could be displayed like this:
 
     <label for="firstName" id="LblfirstName">{{ marketoForm.firstName.label }}</label>
     <input type="{{ marketoForm.firstName.dataType }}" class="email__input" placeholder="{{ marketoForm.firstName.hintText is defined ? marketoForm.firstName.hintText }}" id="firstName" name="firstName" aria-labelledby="LblfirstName InstructfirstName" aria-required="{{ marketoForm.firstName.required }}" aria-invalid="true" aria-describedby="ValidMsg{{ field.id }}">

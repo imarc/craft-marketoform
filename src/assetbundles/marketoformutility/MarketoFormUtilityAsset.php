@@ -10,7 +10,6 @@
 
  namespace imarc\marketoform\assetbundles\marketoformutility;
 
- use Craft;
  use craft\web\AssetBundle;
  use craft\web\assets\cp\CpAsset;
 
