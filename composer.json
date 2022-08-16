@@ -1,6 +1,6 @@
 {
     "name": "imarc/craft-marketoform",
-    "description": "Basic files",
+    "description": "Retrieves Marketo form and makes it available on the front end of a Craft website",
     "type": "craft-plugin",
     "version": "1.0.0",
     "keywords": [
