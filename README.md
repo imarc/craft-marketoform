@@ -30,7 +30,7 @@ To install the plugin, follow these instructions.
 
         composer require imarc/craft-marketoform
 
-4. In the Control Panel, go to Settings → Plugins and click the “Install” button for AdminCss.
+4. In the Control Panel, go to Settings → Plugins and click the “Install” button for Marketo Form.
 
 5. In your config folder create a file called `marketoform.php` and put the following information in it, filling in your own values
 
