@@ -113,6 +113,7 @@ class MarketoFormField extends Field
             // If it is an array and the field `isCpFormData` is set, we are saving a cp form
             $attr += [
                 'marketoFormId' => $this->marketoFormId && isset($value['marketoFormId']) ? $value['marketoFormId'] : null,
+                'thankyouMessage' => $this->thankyouMessage && isset($value['thankyouMessage']) ? $value['thankyouMessage'] : null,
                 'redirectUrl' => $this->redirectUrl && isset($value['redirectUrl']) ? $value['redirectUrl'] : null,
                 'onSubmit' => $this->onSubmit && isset($value['onSubmit']) ? $value['onSubmit'] : null,
                 'onSuccess' => $this->onSuccess & isset($value['onSuccess']) ? $value['onSuccess'] : null,
@@ -186,7 +187,7 @@ class MarketoFormField extends Field
         Craft::$app->getView()->registerJs("$('#{$namespacedId}-field').MarketoFormMarketoFormField(" . $jsonVars . ");");
 
         // Add redactor field
-        $config = ['handle' => $this->handle . 'Redactor'];
+        $config = ['handle' => $this->handle . '[thankyouMessage]'];
         $redactorField = new RedactorField($config);
         if (array_key_exists('thankyouMessage', $value)) {
             $redactorFieldHtml = $redactorField->inputHtml($value['thankyouMessage']);
