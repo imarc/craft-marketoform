@@ -30,7 +30,7 @@ class MarketoFormService extends Component
     private $clientId     = null;
     private $clientSecret = null;
     private $marketoUrl   = null;
-    private $cacheKey     = 'marketoApiAccessToken';
+    private string $cacheKey     = 'marketoApiAccessToken';
     private $cacheTimeout = null;
 
     public $munchkinId = null;
@@ -142,7 +142,7 @@ class MarketoFormService extends Component
                 'Content-Type' => 'application/json',
                 'Accept' => 'Application/json'
             ],
-            'body' => json_encode($data)
+            'body' => json_encode($data, JSON_THROW_ON_ERROR)
         ];
 
         $client = new Client([
@@ -174,10 +174,8 @@ class MarketoFormService extends Component
 
      /**
      * Accquire a new access token from Marketo.
-     *
-     * @return string|bool
      */
-    private function renewAccessToken()
+    private function renewAccessToken(): string|bool
     {
         $client = new Client([
             'base_uri' => $this->marketoUrl
@@ -204,10 +202,8 @@ class MarketoFormService extends Component
 
     /**
      * Get the access token for MarketoApi, if expired get a new one from marketo.
-     *
-     * @return string|bool
      */
-    private function getAccessToken() {
+    private function getAccessToken(): string|bool {
         
         $token = Craft::$app->getCache()->get($this->cacheKey);
 
@@ -222,7 +218,6 @@ class MarketoFormService extends Component
     /**
      * Takes a GuzzleHttp response and handles the http status code checks, and data formatting. (Mini-middleware)
      *
-     * @param \GuzzleHttp\Psr7\Response $result
      * @return mixed 
      */
     private function handleResult(\GuzzleHttp\Psr7\Response $result): array
@@ -232,12 +227,12 @@ class MarketoFormService extends Component
                 sprintf(
                     "API returned an unexpected status (%s).\n Result:\n %s \n", 
                     $result->getStatusCode(),
-                    json_encode(json_decode($result->getBody(), TRUE), JSON_PRETTY_PRINT)
+                    json_encode(json_decode($result->getBody(), TRUE, 512, JSON_THROW_ON_ERROR), JSON_PRETTY_PRINT)
                 )
             );
         }
 
-        return json_decode($result->getBody(), TRUE);
+        return json_decode($result->getBody(), TRUE, 512, JSON_THROW_ON_ERROR);
     }
 
 }

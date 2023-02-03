@@ -108,7 +108,7 @@ class MarketoFormField extends Field
                 if (is_array($decodedValue)) {
                   $attr += $decodedValue;
                 }
-              } catch (Exception $e) {}
+              } catch (Exception) {}
         } else if (is_array($value) && isset($value['isCpFormData'])) {
             // If it is an array and the field `isCpFormData` is set, we are saving a cp form
             $attr += [

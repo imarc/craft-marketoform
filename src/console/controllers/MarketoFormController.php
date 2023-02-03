@@ -66,7 +66,7 @@ class MarketoFormController extends Controller
 
         $result = $marketoSvc->getFormFieldsById(2585);
 
-        echo json_encode($result);
+        echo json_encode($result, JSON_THROW_ON_ERROR);
     }
 
     /**

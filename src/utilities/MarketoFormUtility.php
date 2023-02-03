@@ -34,8 +34,6 @@ class MarketoFormUtility extends Utility
 
     /**
      * Returns the utility’s unique identifier in kebab-case
-     *
-     * @return string
      */
     public static function id(): string
     {
@@ -54,8 +52,6 @@ class MarketoFormUtility extends Utility
 
     /**
      * Returns the utility's content HTML.
-     *
-     * @return string
      */
     public static function contentHtml(): string
     {

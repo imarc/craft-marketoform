@@ -71,14 +71,10 @@ class UtilityController extends Controller
 
     // Private Methods
     // =========================================================================
-
     /**
      * Returns a response.
      *
-     * @param string $message
-     * @param bool $success
      *
-     * @return Response
      */
     private function _getResponse(string $message, bool $success = true): Response
     {
