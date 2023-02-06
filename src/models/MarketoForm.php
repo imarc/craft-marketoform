@@ -37,7 +37,8 @@ class MarketoForm extends Model
     // =========================================================================
 
 
-    public function __construct($config = []) {
+    public function __construct($config = [])
+    {
         parent::__construct($config);
     }
    
@@ -46,7 +47,7 @@ class MarketoForm extends Model
      *
      * @return array
      */
-    public function rules()
+    public function rules(): array
     {
         return [
             [['redirectUrl', 'marketoFormId', 'thankyouMessage', 'onSubmit', 'onSuccess'], 'string'],

@@ -68,7 +68,7 @@ class MarketoFormField extends Field
      **
      * @return array
      */
-    public function rules()
+    public function rules(): array
     {
         $rules = parent::rules();
         $rules = array_merge($rules, [
@@ -94,7 +94,7 @@ class MarketoFormField extends Field
      *
      * @return mixed The prepared field value
      */
-    public function normalizeValue($value, ElementInterface $element = null)
+    public function normalizeValue($value, ElementInterface $element = null): mixed
     {
         if ($value instanceof MarketoFormModel) {
             return $value;
@@ -136,7 +136,7 @@ class MarketoFormField extends Field
      * @param ElementInterface|null $element The element the field is associated with, if there is one
      * @return mixed The serialized field value
      */
-    public function serializeValue($value, ElementInterface $element = null)
+    public function serializeValue($value, ElementInterface $element = null): mixed
     {
         return parent::serializeValue($value, $element);
     }

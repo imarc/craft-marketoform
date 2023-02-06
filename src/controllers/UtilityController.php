@@ -23,7 +23,7 @@ class UtilityController extends Controller
      * Handle a request going to actionClearCache URL
      * i.e.: marketoform/utility/clear-cache
      */
-    public function actionClearCache()
+    public function actionClearCache(): mixed
     {
         $request = Craft::$app->getRequest();
 
@@ -51,7 +51,8 @@ class UtilityController extends Controller
      * i.e.: marketoform/utility/clear-all-cache
      */
 
-    public function actionClearAllCache() {
+    public function actionClearAllCache(): mixed 
+    {
         $request = Craft::$app->getRequest();
 
         $craftCache = Craft::$app->getCache();

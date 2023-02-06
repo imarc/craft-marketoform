@@ -40,7 +40,7 @@ class MarketoFormController extends Controller
      *
      * @return mixed
      */
-    public function actionIndex()
+    public function actionIndex(): mixed
     {
         $result = 'something';
 
@@ -61,7 +61,8 @@ class MarketoFormController extends Controller
      *
      * @return mixed
      */
-    public function actionGetFormFields() {
+    public function actionGetFormFields(): mixed
+    {
         $marketoSvc = new MarketoFormService();
 
         $result = $marketoSvc->getFormFieldsById(2585);
