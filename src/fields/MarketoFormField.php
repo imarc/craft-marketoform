@@ -146,7 +146,7 @@ class MarketoFormField extends Field
      * 
      * @return string|null
      */
-    public function getSettingsHtml()
+    public function getSettingsHtml(): ?string
     {
         // Render the settings template
         return Craft::$app->getView()->renderTemplate(
