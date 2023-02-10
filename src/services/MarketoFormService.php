@@ -39,7 +39,7 @@ class MarketoFormService extends Component
     // Public Methods
     // =========================================================================
 
-    public function init() 
+    public function init(): void
     {
         $this->clientId     = MarketoForm::getInstance()->settings->clientId;
         $this->clientSecret = MarketoForm::getInstance()->settings->clientSecret;
