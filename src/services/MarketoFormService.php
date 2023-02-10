@@ -16,7 +16,7 @@ use Exception;
 
 use Craft;
 use GuzzleHttp\Client;
-use craft\base\Model;
+use yii\base\Component;
 
 /**
  * MarketoForm Service
@@ -25,32 +25,19 @@ use craft\base\Model;
  * @package   MarketoForm
  * @since     1.0.0
  */
-class MarketoFormService extends Model
+class MarketoFormService extends Component
 {
-    private $clientId     = null;
-    private $clientSecret = null;
-    private $marketoUrl   = null;
+    private $clientId     = MarketoForm::getInstance()->settings->clientId;
+    private $clientSecret = MarketoForm::getInstance()->settings->clientSecret;
+    private $marketoUrl   = MarketoForm::getInstance()->settings->marketoUrl;
     private string $cacheKey     = 'marketoApiAccessToken';
-    private $cacheTimeout = null;
+    private $cacheTimeout = MarketoForm::getInstance()->settings->cacheTimeout ?: 86400;
 
-    public $munchkinId = null;
-    public $baseUrl = null;
+    public $munchkinId = MarketoForm::getInstance()->settings->munchkinId;
+    public $baseUrl = MarketoForm::getInstance()->settings->baseUrl;
     
     // Public Methods
     // =========================================================================
-
-    public function init(): void
-    {
-        $this->clientId     = MarketoForm::getInstance()->settings->clientId;
-        $this->clientSecret = MarketoForm::getInstance()->settings->clientSecret;
-        $this->marketoUrl   = MarketoForm::getInstance()->settings->marketoUrl;
-        $this->munchkinId   = MarketoForm::getInstance()->settings->munchkinId;
-        $this->baseUrl      = MarketoForm::getInstance()->settings->baseUrl;
-        $this->cacheTimeout = MarketoForm::getInstance()->settings->cacheTimeout ?: 86400;
-
-        parent::init();
-
-    }
 
     /**
      * Retrieves a form from Marketo and returns the JSON result, an array of form fields
