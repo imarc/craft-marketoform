@@ -16,7 +16,7 @@ use Exception;
 
 use Craft;
 use GuzzleHttp\Client;
-use yii\base\Component;
+use craft\base\Model;
 
 /**
  * MarketoForm Service
@@ -25,7 +25,7 @@ use yii\base\Component;
  * @package   MarketoForm
  * @since     1.0.0
  */
-class MarketoFormService extends Component
+class MarketoFormService extends Model
 {
     private $clientId     = null;
     private $clientSecret = null;
