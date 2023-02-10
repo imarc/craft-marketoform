@@ -16,7 +16,7 @@ use Exception;
 
 use Craft;
 use GuzzleHttp\Client;
-use craft\base\Component;
+use yii\base\Component;
 
 /**
  * MarketoForm Service
