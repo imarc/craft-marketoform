@@ -16,7 +16,7 @@ use Exception;
 
 use Craft;
 use GuzzleHttp\Client;
-use yii\base\Component;
+use craft\base\Component;
 
 /**
  * MarketoForm Service
@@ -27,17 +27,30 @@ use yii\base\Component;
  */
 class MarketoFormService extends Component
 {
-    private $clientId     = MarketoForm::getInstance()->settings->clientId;
-    private $clientSecret = MarketoForm::getInstance()->settings->clientSecret;
-    private $marketoUrl   = MarketoForm::getInstance()->settings->marketoUrl;
+    private $clientId     = null;
+    private $clientSecret = null;
+    private $marketoUrl   = null;
     private string $cacheKey     = 'marketoApiAccessToken';
-    private $cacheTimeout = MarketoForm::getInstance()->settings->cacheTimeout ?: 86400;
+    private $cacheTimeout = null;
 
-    public $munchkinId = MarketoForm::getInstance()->settings->munchkinId;
-    public $baseUrl = MarketoForm::getInstance()->settings->baseUrl;
+    public $munchkinId = null;
+    public $baseUrl = null;
     
     // Public Methods
     // =========================================================================
+
+    public function init(): void
+    {
+        $this->clientId     = MarketoForm::getInstance()->settings->clientId;
+        $this->clientSecret = MarketoForm::getInstance()->settings->clientSecret;
+        $this->marketoUrl   = MarketoForm::getInstance()->settings->marketoUrl;
+        $this->munchkinId   = MarketoForm::getInstance()->settings->munchkinId;
+        $this->baseUrl      = MarketoForm::getInstance()->settings->baseUrl;
+        $this->cacheTimeout = MarketoForm::getInstance()->settings->cacheTimeout ?: 86400;
+
+        parent::init();
+
+    }
 
     /**
      * Retrieves a form from Marketo and returns the JSON result, an array of form fields
@@ -47,7 +60,7 @@ class MarketoFormService extends Component
      * @return JSON
      */
 
-    public function getFormFieldsById($id) {
+    public function getFormFieldsById($id): array {
 
         // Get form JSON from cache if it exists, otherwise pull from Marketo
         $formJson = Craft::$app->getCache()->get("marketoForm" . $id);
@@ -83,7 +96,7 @@ class MarketoFormService extends Component
      * 
      */
 
-    public function getFormObjectById($id) {
+    public function getFormObjectById($id): array {
         $formJson = $this->getFormFieldsById($id);
         $formObj = [];
         $htmlText = [];
@@ -121,7 +134,7 @@ class MarketoFormService extends Component
      * @param array $options
      * @return Response
      */
-    private function sendMarketoRequest($method, $requestPath, $data = [])
+    private function sendMarketoRequest($method, $requestPath, $data = []): array
     {
         $options = [
             'headers' => [
