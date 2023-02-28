@@ -189,7 +189,7 @@ class MarketoFormField extends Field
         // Add redactor field
         $config = ['handle' => $this->handle . '[thankyouMessage]'];
         $redactorField = new RedactorField($config);
-        if (array_key_exists('thankyouMessage', $value)) {
+        if (is_array($value) && array_key_exists('thankyouMessage', $value)) {
             $redactorFieldHtml = $redactorField->inputHtml($value['thankyouMessage']);
         } else {
             $redactorFieldHtml = '';
